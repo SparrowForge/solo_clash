@@ -1,10 +1,10 @@
-"use client";
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +21,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = usePathname();
+  const pathname = "l";
 
   // Decide where to show navbar/footer
   const hideLayout =
@@ -31,16 +31,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Navigation Header */}
-        <header className="absolute top-10 w-full z-50">
-          {!hideLayout && <Navbar />}
-        </header>
-
         {/* Main content */}
-        <div>{children}</div>
-
-        {/* Footer */}
-        {!hideLayout && <Footer />}
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

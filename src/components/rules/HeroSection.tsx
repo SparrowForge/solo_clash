@@ -1,6 +1,9 @@
 import StartNowButton from "../StartNowButton";
+import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
+  const t = useTranslations("RulesPage");
+
   return (
     <section className="justify-center text-center px-6 lg:px-20">
       <div className="relative z-10 max-w-4xl mx-auto pt-[217px]">
@@ -13,7 +16,7 @@ export default function HeroSection() {
             letterSpacing: "0.005em",
           }}
         >
-          Trading rules
+          {t("title")}
         </h2>
         <p
           className="text-center"

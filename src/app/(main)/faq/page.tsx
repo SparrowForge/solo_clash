@@ -1,8 +1,8 @@
 import WhyChooseProgram from "@/components/affiliates/WhyChoosePrograms";
 
-import HowItWorksAffiliates from "../../components/affiliates/HowItWorksAffiliates";
+import HowItWorksAffiliates from "../../../components/affiliates/HowItWorksAffiliates";
 
-import Banner from "../../components/Banner";
+import Banner from "../../../components/Banner";
 
 import TiredRewards from "@/components/affiliates/TiredRewards";
 import CommissionSection from "@/components/affiliates/CommissionSection";
