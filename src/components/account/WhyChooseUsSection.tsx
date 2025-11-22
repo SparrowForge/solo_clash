@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import FeatureCard from "./WhyChooseUsCard";
 import HomeButton from "../HomeButton";
 import Heading from "../common/Heading";
+import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import {
   Antenna,
@@ -19,51 +20,58 @@ import {
 const cards = [
   {
     id: 1,
-    title: "We don’t follow trends",
-    description: "We design what proper trading should feel like",
+    title: "Precision. Control. Freedom.",
+    description: "Built for traders who demand more.",
     icon: <TrendingUp size={36} color="#F5A623" />,
+    iconSrc: "/icons/slider/1.png",
     rotate: 0,
   },
   {
     id: 2,
-    title: "Trade with clarity",
-    description: "Every rule exists to empower, not restrict",
+    title: "No distractions. No noise.",
+    description: "Just pure performance.",
     icon: <Antenna size={36} color="#F5A623" />,
+    iconSrc: "/icons/slider/2.png",
     rotate: -2.5,
   },
   {
     id: 3,
-    title: "Every parameter matters",
-    description: "Transparent, balanced, and fair from day one",
+    title: "Every parameter makes sense.",
+    description: "Transparent, balanced, and fair, from day one.",
     icon: <SlidersHorizontal size={36} color="#F5A623" />,
+    iconSrc: "/icons/slider/3.png",
     rotate: 0,
   },
   {
     id: 4,
-    title: "Grow without limits",
-    description: "The better you perform, the more we scale with you",
+    title: "Trade with clarity.",
+    description: "Every rule exists to empower, not restrict.",
     icon: <Sprout size={36} color="#F5A623" />,
+    iconSrc: "/icons/slider/4.png",
     rotate: -1.5,
   },
   {
     id: 5,
-    title: "Your focus on the charts",
-    description: "We handle everything else from funding to payouts",
+    title: "We don’t follow trends.",
+    description: "We design what prop trading should feel like.",
     icon: <ChartNoAxesCombined size={36} color="#F5A623" />,
+    iconSrc: "/icons/slider/5.png",
     rotate: -3,
   },
   {
     id: 6,
-    title: "No distractions, No noise",
-    description: "Just pure performance",
+    title: "You focus on the charts.",
+    description: "We handle everything else, from funding to payouts.",
     icon: <VolumeOff size={36} color="#F5A623" />,
+    iconSrc: "/icons/slider/6.png",
     rotate: -4,
   },
   {
     id: 7,
-    title: "Precision. Control. Freedom",
-    description: "Built for traders who demand more",
+    title: "Grow without limits",
+    description: "The better you perform, the more we scale with you.",
     icon: <Crosshair size={36} color="#F5A623" />,
+    iconSrc: "/icons/slider/7.png",
     rotate: 0,
   },
 ];
@@ -90,11 +98,31 @@ function Card({
   return (
     <motion.div
       style={{ scale, y, opacity, rotate: card.rotate }}
-      className={`sticky top-20 mb-6 text-white bg-gradient-to-tr from-black via-gray-900 to-amber-900/40 rounded-2xl shadow-lg p-6 border border-gray-500`}
+      className={`sticky top-20 mb-6 text-white rounded-3xl bg-cover bg-center w-[1071px] h-[350px] p-12`}
+      title={card.title}
     >
-      <div className="mb-4">{card.icon}</div>
-      <h2 className="text-xl font-bold mb-2">{card.title}</h2>
-      <p className="text-gray-400">{card.description}</p>
+      <div
+        className="absolute inset-0 rounded-3xl"
+        style={{
+          backgroundImage: "url('/slider_bg.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          zIndex: -1,
+        }}
+      />
+      <div className="relative z-10">
+        <div className="mb-4">
+          <Image
+            src={card.iconSrc}
+            alt={card.title}
+            width={100}
+            height={100}
+            className="w-25 h-25"
+          />
+        </div>
+        <h2 className="text-xl font-bold mb-2 text-left">{card.title}</h2>
+        <p className="text-gray-400 text-left">{card.description}</p>
+      </div>
     </motion.div>
   );
 }
@@ -125,7 +153,7 @@ export default function StackingStickyCards() {
           <br className="hidden md:block" />
           {t("accountPage.featureSection.heading2")}
         </Heading>
-        <div className="w-full max-w-lg relative" ref={ref}>
+        <div className="w-full relative flex flex-col items-center" ref={ref}>
           {cards.map((card, index) => (
             <Card
               key={card.id}
