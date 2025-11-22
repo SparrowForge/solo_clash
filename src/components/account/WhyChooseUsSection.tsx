@@ -1,5 +1,10 @@
 "use client";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import FeatureCard from "./WhyChooseUsCard";
+import HomeButton from "../HomeButton";
+import Heading from "../common/Heading";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import {
   Antenna,
@@ -100,19 +105,38 @@ export default function StackingStickyCards() {
     target: ref,
     offset: ["start end", "end start"],
   });
-
+  const t = useTranslations();
+  const router = useRouter();
   return (
-    <section className="h-[300vh] flex items-start justify-center bg-black pt-20">
-      <div className="w-full max-w-lg relative" ref={ref}>
-        {cards.map((card, index) => (
-          <Card
-            key={card.id}
-            card={card}
-            index={index}
-            scrollYProgress={scrollYProgress}
-          />
-        ))}
+    <section
+      className="justify-center text-center px-4 sm:px-6 lg:px-20 py-10 sm:py-16 lg:py-20"
+      style={{ backgroundColor: "#030303" }}
+    >
+      <div className="flex flex-col justify-center items-center gap-6">
+        {/* Top Badge */}
+        <HomeButton onClick={() => router.push("/account")}>
+          {t("accountPage.featureSection.badge")}
+        </HomeButton>
+
+        {/* Heading */}
+        <Heading>
+          {" "}
+          {t("accountPage.featureSection.heading1")}{" "}
+          <br className="hidden md:block" />
+          {t("accountPage.featureSection.heading2")}
+        </Heading>
+        <div className="w-full max-w-lg relative" ref={ref}>
+          {cards.map((card, index) => (
+            <Card
+              key={card.id}
+              card={card}
+              index={index}
+              scrollYProgress={scrollYProgress}
+            />
+          ))}
+        </div>
       </div>
+      <Heading>This is more than a challenge</Heading>
     </section>
   );
 }
