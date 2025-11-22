@@ -1,5 +1,5 @@
 import HeroSection from "@/components/account/HeroSection";
-import WhyChooseUsSection from "@/components/account/WhyChooseUsSection";
+import WhyChooseUsSectionNew from "@/components/account/WhyChooseUsSectionNew";
 import HowItWorksSection from "@/components/account/HowItWorksSection";
 import SpinWinTradeSection from "@/components/account/SpinWinTradeSection";
 import FaqSection from "@/components/account/FaqSection";
@@ -15,7 +15,7 @@ export default async function Home() {
     >
       <HeroSection />
       <SubscriptionsSectionNew />
-      <WhyChooseUsSection />
+      <WhyChooseUsSectionNew />
       <TradePlatform />
       <HowItWorksSection />
 
