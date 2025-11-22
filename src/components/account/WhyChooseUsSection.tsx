@@ -98,11 +98,11 @@ function Card({
   return (
     <motion.div
       style={{ scale, y, opacity, rotate: card.rotate }}
-      className={`sticky top-20 mb-6 text-white rounded-3xl bg-cover bg-center w-[1071px] h-[350px] p-12`}
+      className={`sticky top-20 mb-6 text-white rounded-2xl sm:rounded-3xl bg-cover bg-center w-full sm:w-[600px] md:w-[800px] lg:w-[1071px] h-[280px] sm:h-[300px] md:h-[320px] lg:h-[350px] p-6 sm:p-8 md:p-10 lg:p-12`}
       title={card.title}
     >
       <div
-        className="absolute inset-0 rounded-3xl"
+        className="absolute inset-0 rounded-2xl sm:rounded-3xl"
         style={{
           backgroundImage: "url('/slider_bg.png')",
           backgroundSize: "cover",
@@ -111,17 +111,21 @@ function Card({
         }}
       />
       <div className="relative z-10">
-        <div className="mb-4">
+        <div className="mb-3 sm:mb-4">
           <Image
             src={card.iconSrc}
             alt={card.title}
             width={100}
             height={100}
-            className="w-25 h-25"
+            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-25 lg:h-25"
           />
         </div>
-        <h2 className="text-xl font-bold mb-2 text-left">{card.title}</h2>
-        <p className="text-gray-400 text-left">{card.description}</p>
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2 text-left">
+          {card.title}
+        </h2>
+        <p className="text-sm sm:text-base text-gray-300 sm:text-gray-400 text-left">
+          {card.description}
+        </p>
       </div>
     </motion.div>
   );
