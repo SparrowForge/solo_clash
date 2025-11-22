@@ -9,10 +9,7 @@ import TradePlatform from "@/components/account/TradePlatform";
 
 export default async function Home() {
   return (
-    <main
-      className="text-white overflow-hidden"
-      style={{ backgroundColor: "#030303" }}
-    >
+    <main className="text-white" style={{ backgroundColor: "#030303" }}>
       <HeroSection />
       <SubscriptionsSectionNew />
       <WhyChooseUsSection />
