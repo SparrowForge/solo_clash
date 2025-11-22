@@ -136,7 +136,6 @@ export default function StackingStickyCards() {
           ))}
         </div>
       </div>
-      <Heading>This is more than a challenge</Heading>
     </section>
   );
 }
